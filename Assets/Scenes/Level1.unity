@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _circle: {fileID: 81395533}
+  _camera: {fileID: 0}
 --- !u!50 &435849225
 Rigidbody2D:
   serializedVersion: 5
@@ -554,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf47cfb93bd2d444aa9aea141f240c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 90
+  rotationSpeed: 0
 --- !u!1 &1066857662
 GameObject:
   m_ObjectHideFlags: 0
