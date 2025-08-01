@@ -1,14 +1,16 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Jump2D : MonoBehaviour {
+public class Jump : MonoBehaviour {
     [Header("Jumping")]
     public float jumpForce = 10f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
+
+    // We no longer need the LayerMask variable
+    // public LayerMask groundLayer;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -18,14 +20,33 @@ public class Jump2D : MonoBehaviour {
     }
 
     void Update() {
-        // Check if the player is on the ground using a circle cast
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // We now call a custom function to check for the ground
+        CheckIfGrounded();
 
         // Allow jumping only when grounded
         if (Input.GetButtonDown("Jump") && isGrounded) {
-            // Use Vector2.up for 2D physics
-            Debug.Log("Jump");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void CheckIfGrounded() {
+        // Get an array of all colliders that the ground check circle is overlapping with.
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius);
+
+        // Assume we are not grounded until we find a valid collider.
+        isGrounded = false;
+
+        // Loop through all the colliders found by the overlap circle.
+        foreach (Collider2D col in colliders) {
+            // **This is the crucial part:**
+            // We check if the collider we found belongs to a DIFFERENT GameObject.
+            // If we didn't do this, the player's own collider would always be detected,
+            // making the player think it's always on the ground.
+            if (col.gameObject != this.gameObject) {
+                isGrounded = true;
+                // Since we found a valid ground object, we can stop checking.
+                break;
+            }
         }
     }
 
