@@ -9,6 +9,8 @@ public class RotationController : MonoBehaviour
     public float relativeRotation;
     private bool posRot;
 
+    [SerializeField] GameObject _startGameUI;
+
     private void Start()
     {
         Time.timeScale = 0.0f;
@@ -18,6 +20,9 @@ public class RotationController : MonoBehaviour
 
     public void StartLevel() {
         Time.timeScale = 1.0f;
+        if(_startGameUI != null) {
+            Destroy(_startGameUI);
+        }
     }
 
     private void Update()
