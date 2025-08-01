@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] GameObject _circle;
-    [SerializeField] GameObject _camera;
+    [SerializeField] RotationController _rotationManager;
 
-    bool troll;
     private void OnTriggerEnter2D(Collider2D collision) {
-        _circle.GetComponent<RotateCircle>().rotationSpeed *= -1;
-        //_camera.GetComponent<RotateCircle>().rotationSpeed *= -1;
+        _rotationManager.levelRotationSpeed *= -1;
+        //_rotationManager.cameraRotationSpeed =_rotationManager.levelRotationSpeed - _rotationManager.relativeRotation;
     }
 
 }
