@@ -40,7 +40,7 @@ public class PlayerStateMachine : MonoBehaviour {
             TransitionToState(jumpingState);
         } else if (currentState == jumpingState && rb.linearVelocity.y < 0) {
             TransitionToState(fallingState);
-        } else if (currentState == fallingState && IsGrounded()) {
+        } else if (currentState == fallingState && rb.linearVelocity.y <= 0) {
             TransitionToState(idleState);
         }
     }

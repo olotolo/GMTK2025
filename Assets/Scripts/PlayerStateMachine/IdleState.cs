@@ -9,7 +9,7 @@ public class IdleState : PlayerState {
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        
+        Debug.Log("enter idle state");
     }
 
     public override void ExitState() {

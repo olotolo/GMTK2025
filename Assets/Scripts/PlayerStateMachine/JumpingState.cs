@@ -8,6 +8,7 @@ public class JumpingState : PlayerState {
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
+        Debug.Log("jupming state");
         base.EnterState(playerRb, groundCheck, groundCheckRadius);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }

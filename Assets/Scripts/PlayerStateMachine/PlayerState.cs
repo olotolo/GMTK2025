@@ -9,7 +9,6 @@ public abstract class PlayerState {
         this.rb = playerRb;
         this.groundCheck = groundCheck;
         this.groundCheckRadius = groundCheckRadius;
-        Debug.Log("entering state");
     }
 
     public abstract void UpdateState();
