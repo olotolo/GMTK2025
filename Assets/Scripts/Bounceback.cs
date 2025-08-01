@@ -25,7 +25,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         if (_bounceTime > 0.0f)
         {
-            Debug.Log(_bounceTime);
             _rotationManager.levelRotationSpeed = 2*(_bounceTime - _bounceBackTime / 2)/_bounceBackTime *_rotationStartSpeed;
             _bounceTime -= Time.deltaTime;
         }
