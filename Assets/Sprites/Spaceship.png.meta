@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0d83b9771c599c04c8c1f10d7ab61f25
+guid: 0a8bb257fd5e2174089c247810765501
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6911521278643070955
-    second: Spaceship1_0
+      213: 4647338377630358598
+    second: Spaceship 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spaceship1_0
+      name: Spaceship 1_0
       rect:
         serializedVersion: 2
-        x: 138
-        y: 0
-        width: 364
-        height: 360
+        x: 57
+        y: 57
+        width: 526
+        height: 538
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be7e21febf7aaef50800000000000000
-      internalID: 6911521278643070955
+      spriteID: 64c92bdb1a9ae7040800000000000000
+      internalID: 4647338377630358598
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Spaceship1_0: 6911521278643070955
+      Spaceship 1_0: 4647338377630358598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
