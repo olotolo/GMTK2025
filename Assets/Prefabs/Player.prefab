@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8000254037273140929}
   - component: {fileID: 1737917371766744965}
-  - component: {fileID: 1304656123862953857}
   - component: {fileID: 8791682104389618561}
   - component: {fileID: 6958732832583734928}
   - component: {fileID: 416855057172636940}
+  - component: {fileID: -2197053421781508520}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -92,21 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1304656123862953857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3285990048892832424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d30fd0092413943ba379d6694b3e7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 3
-  groundCheck: {fileID: 1947591180262726773}
-  groundCheckRadius: 0.2
 --- !u!114 &8791682104389618561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +180,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2197053421781508520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285990048892832424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43a5bbf57476bd46a2a80fe11456605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 3
+  groundCheck: {fileID: 1947591180262726773}
+  groundCheckRadius: 0.1
 --- !u!1 &3957934382634114242
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,8 +221,8 @@ Transform:
   m_GameObject: {fileID: 3957934382634114242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4172, z: 0}
-  m_LocalScale: {x: 1, y: 0.1694, z: 1}
+  m_LocalPosition: {x: 0, y: -0.4912, z: 0}
+  m_LocalScale: {x: 1, y: 0.021405384, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8000254037273140929}
