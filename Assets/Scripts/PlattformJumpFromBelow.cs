@@ -7,7 +7,7 @@ public class PlattformJumpFromBelow : MonoBehaviour
     void Start()
     {
         if(_player == null) {
-            _player = FindFirstObjectByType<Player>().transform;
+            _player = FindFirstObjectByType<Player>().transform.GetComponent<SpriteRenderer>().transform;
         }    
     }
 
