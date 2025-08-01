@@ -3,59 +3,94 @@ using UnityEngine;
 
 public class Door_Controller : MonoBehaviour
 {
-    bool _isOpen;
-    SpriteRenderer _spriteRenderer;
+    private bool _isOpen;
+    private SpriteRenderer _spriteRenderer;
 
-    [SerializeField] GameObject[] lights; // Assign Light_01, Light_02, Light_03 in Inspector
+    [SerializeField] private GameObject[] lights; // Assign in Inspector
+    [SerializeField] private bool showLights = true; // Control whether light sprites are rendered
+
+    public bool ShowLights
+    {
+        get => showLights;
+        set
+        {
+            showLights = value;
+            UpdateLightVisibility();
+        }
+    }
 
     public bool IsOpen
     {
-        get { return _isOpen; }
+        get => _isOpen;
         set
         {
             _isOpen = value;
             UpdateColor();
-            if (_isOpen)
-            {
-                StartCoroutine(HandleLightsSequence());
-            }
         }
     }
 
-    void Start()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateColor();
+        UpdateLightVisibility();
     }
 
-    void UpdateColor()
+    private void UpdateColor()
     {
         if (_spriteRenderer == null) return;
-
         _spriteRenderer.color = _isOpen ? Color.black : Color.grey;
     }
 
-    IEnumerator HandleLightsSequence()
+    private void UpdateLightVisibility()
     {
-        // Turn all lights yellow
         foreach (var lightObj in lights)
         {
             var sr = lightObj.GetComponent<SpriteRenderer>();
             if (sr != null)
-                sr.color = Color.yellow;
+                sr.enabled = showLights;
+        }
+    }
+
+    public void Toggle()
+    {
+        IsOpen = !IsOpen;
+    }
+
+    public void OpenTemporarily(int duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(HandleLightsSequence(duration));
+    }
+
+    private IEnumerator HandleLightsSequence(int duration)
+    {
+        IsOpen = true;
+
+        if (showLights)
+        {
+            foreach (var lightObj in lights)
+            {
+                var sr = lightObj.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                    sr.color = Color.yellow;
+            }
         }
 
-        // Wait and turn them off one by one
+        float waitTime = (duration > 0 && lights.Length > 0) ? (float)duration / lights.Length : 1f;
+
         for (int i = 0; i < lights.Length; i++)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(waitTime);
 
-            var sr = lights[i].GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.color = Color.grey;
+            if (showLights)
+            {
+                var sr = lights[i].GetComponent<SpriteRenderer>();
+                if (sr != null)
+                    sr.color = Color.grey;
+            }
         }
 
-        // After all are off, close the door
         IsOpen = false;
     }
 }
