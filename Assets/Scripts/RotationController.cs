@@ -11,12 +11,20 @@ public class RotationController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 0.0f;
         relativeRotation = (levelRotationSpeed - cameraRotationSpeed);
         updateRotation();
     }
 
+    public void StartLevel() {
+        Time.timeScale = 1.0f;
+    }
+
     private void Update()
     {
+        if (Input.anyKeyDown) {
+            StartLevel();
+        }
         updateRotation();
     }
 
