@@ -7,7 +7,7 @@ public class RotationController : MonoBehaviour
     public float cameraRotationSpeed;
     public float levelRotationSpeed;
     public float relativeRotation;
-    private bool posRot;
+    public float targetRotationSpeed;
 
     [SerializeField] GameObject _startGameUI;
     [SerializeField] bool _skipStartUI;
@@ -16,6 +16,7 @@ public class RotationController : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         relativeRotation = (levelRotationSpeed - cameraRotationSpeed);
+        targetRotationSpeed = levelRotationSpeed;
         updateRotation();
         if (_skipStartUI) {
             StartLevel();
