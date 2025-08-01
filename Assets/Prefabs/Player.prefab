@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 626223942970040096}
   - component: {fileID: 6958580481847472963}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Walking
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 416855057172636940}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,9 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d26712e576ae54d836825bcb790e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _circle: {fileID: 0}
-  _camera: {fileID: 0}
-  _door: {fileID: 0}
 --- !u!50 &6958732832583734928
 Rigidbody2D:
   serializedVersion: 5
