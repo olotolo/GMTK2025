@@ -13,10 +13,19 @@ public class ButtonController : MonoBehaviour
 
     public Mode _mode = Mode.Toggle;
 
-    [Tooltip("Time in seconds (only used when SetTimer is selected)")]
-    public int _amountOfTime = 5;
+    [Tooltip("Time in seconds the door stays open (only used when SetTimer is selected)")]
+    public int doorOpenTime = 5;
+
+    [Tooltip("Time in seconds for button reactivation")]
+    public int buttonReactivationTime = 3;
 
     private bool isActivated = true;
+
+    [Header("Button Sprites")]
+    [SerializeField] private Sprite buttonStage1;
+    [SerializeField] private Sprite buttonStage2;
+    [SerializeField] private Sprite buttonStage3;
+    [SerializeField] private Sprite buttonStage4;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,7 +41,7 @@ public class ButtonController : MonoBehaviour
             }
             else if (_mode == Mode.SetTimer)
             {
-                doorController.OpenTemporarily(_amountOfTime);
+                doorController.OpenTemporarily(doorOpenTime);
             }
 
             StartCoroutine(HandleReactivationSequence());
@@ -44,59 +53,18 @@ public class ButtonController : MonoBehaviour
         isActivated = false;
 
         var sr = GetComponent<SpriteRenderer>();
-        sr.color = Color.grey;
 
-        Vector3 originalScale = transform.localScale;
+        if (buttonStage1 != null) sr.sprite = buttonStage1;
+        yield return new WaitForSeconds(buttonReactivationTime / 3f);
 
-        // Shrink the button height
-        Vector3 stepScale = originalScale;
-        stepScale.y = 0.005f; // starting small
-        transform.localScale = stepScale;
+        if (buttonStage2 != null) sr.sprite = buttonStage2;
+        yield return new WaitForSeconds(buttonReactivationTime / 3f);
 
-        // Calculate Y increment per second
-        float totalYChange = originalScale.y - stepScale.y;
-        float stepAmount = totalYChange / _amountOfTime;
+        if (buttonStage3 != null) sr.sprite = buttonStage3;
+        yield return new WaitForSeconds(buttonReactivationTime / 3f);
 
-        for (int i = 0; i < _amountOfTime; i++)
-        {
-            yield return new WaitForSeconds(1f);
+        if (buttonStage4 != null) sr.sprite = buttonStage4;
 
-            stepScale.y += stepAmount;
-            transform.localScale = new Vector3(originalScale.x, stepScale.y, originalScale.z);
-        }
-
-        // Final fix (in case of floating point drift)
-        transform.localScale = originalScale;
-
-        sr.color = Color.red;
         isActivated = true;
     }
-
-
-
-
-
-
-    //// Turn all lights yellow
-    //foreach (var lightObj in lights)
-    //{
-    //    var sr = lightObj.GetComponent<SpriteRenderer>();
-    //    if (sr != null)
-    //        sr.color = Color.yellow;
-    //}
-
-    //// Wait and turn them off one by one
-    //for (int i = 0; i < lights.Length; i++)
-    //{
-    //    yield return new WaitForSeconds(1f);
-
-    //    var sr = lights[i].GetComponent<SpriteRenderer>();
-    //    if (sr != null)
-    //        sr.color = Color.grey;
-    //}
-
-    //// After all are off, close the door
-    //IsOpen = false;
-
-
 }

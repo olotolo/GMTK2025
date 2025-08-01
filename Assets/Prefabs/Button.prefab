@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.23717731, w: 0.9714664}
   m_LocalPosition: {x: 0.2106, y: 0.4336, z: 0}
-  m_LocalScale: {x: 0.02742494, y: 0.03, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8113208, g: 0.07271269, b: 0.07271269, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7fa85708a4df045f78bb98fe10c5a179, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,17 +123,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.29937476}
+  m_Offset: {x: 0.0026879907, y: -0.0015946031}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.5987493}
+  m_Size: {x: 0.52892745, y: 0.5301868}
   m_EdgeRadius: 0
 --- !u!114 &5796397956630692810
 MonoBehaviour:
@@ -149,4 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _door: {fileID: 0}
   _mode: 0
-  _amountOfTime: 5
+  doorOpenTime: 5
+  buttonReactivationTime: 3
+  buttonStage1: {fileID: 21300000, guid: 6b142b54ed05141fba40d067c7926c80, type: 3}
+  buttonStage2: {fileID: 21300000, guid: 62eac72b4c48c45349de817057b992da, type: 3}
+  buttonStage3: {fileID: 21300000, guid: 0fa7f88b561fe4878a664ee563103625, type: 3}
+  buttonStage4: {fileID: 21300000, guid: 7fa85708a4df045f78bb98fe10c5a179, type: 3}
