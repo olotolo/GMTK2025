@@ -5,26 +5,33 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] RotationController _rotationManager;
     [SerializeField] float _speedBoost;
     [SerializeField] float _fullBoostTime;
-    private float _boostTime;
     private bool _currentlyBoosted;
+    private GameObject _boostedObject;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _rotationManager.levelRotationSpeed *= _speedBoost;
-        _boostTime = _fullBoostTime;
+        _boostedObject = collision.gameObject;
+        if (_boostedObject.GetComponent<Player>().boostedFor <= 0.0f)
+        {
+            _rotationManager.levelRotationSpeed *= _speedBoost;
+        }
+        _boostedObject.GetComponent<Player>().boostedFor = _fullBoostTime;
         _currentlyBoosted = true;
     }
 
     private void Update()
     {
-        if (_boostTime > 0.0f && _currentlyBoosted)
+        if (_currentlyBoosted)
         {
-            _boostTime -= Time.deltaTime;
-        }
-        else if (_boostTime <= 0.0f && _currentlyBoosted)
-        {
-            _rotationManager.levelRotationSpeed = _rotationManager.targetRotationSpeed;
-            _currentlyBoosted = false;
+            if (_boostedObject.GetComponent<Player>().boostedFor > 0.0f)
+            {
+                _boostedObject.GetComponent<Player>().boostedFor -= Time.deltaTime;
+            }
+            else
+            {
+                _rotationManager.levelRotationSpeed = _rotationManager.targetRotationSpeed;
+                _currentlyBoosted = false;
+            }
         }
     }
 }
