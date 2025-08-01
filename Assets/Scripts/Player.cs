@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     bool troll;
     private void OnTriggerEnter2D(Collider2D collision) {
         _circle.GetComponent<RotateCircle>().rotationSpeed *= -1;
-        //_camera.GetComponent<RotateCircle>().rotationSpeed *= -1;
+        _camera.GetComponent<RotateCircle>().rotationSpeed *= -1;
     }
 
 }
