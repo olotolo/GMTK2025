@@ -9,14 +9,31 @@ public class RotationController : MonoBehaviour
     public float relativeRotation;
     private bool posRot;
 
+    [SerializeField] GameObject _startGameUI;
+    [SerializeField] bool _skipStartUI;
+ 
     private void Start()
     {
+        Time.timeScale = 0.0f;
         relativeRotation = (levelRotationSpeed - cameraRotationSpeed);
         updateRotation();
+        if (_skipStartUI) {
+            StartLevel();
+        }
+    }
+
+    public void StartLevel() {
+        Time.timeScale = 1.0f;
+        if(_startGameUI != null) {
+            Destroy(_startGameUI);
+        }
     }
 
     private void Update()
     {
+        if (Input.anyKeyDown) {
+            StartLevel();
+        }
         updateRotation();
     }
 
