@@ -38,9 +38,14 @@ public class PlayerStateMachine : MonoBehaviour {
     private void CheckForStateTransition() {
         if (currentState == idleState && Input.GetButtonDown("Jump") && IsGrounded()) {
             TransitionToState(jumpingState);
-        } else if (currentState == jumpingState && rb.linearVelocity.y < 0) {
+        }
+        else if (currentState == idleState && !IsGrounded()) {
             TransitionToState(fallingState);
-        } else if (currentState == fallingState && rb.linearVelocity.y <= 0) {
+        }
+        else if (currentState == jumpingState && rb.linearVelocity.y <= 0) {
+            TransitionToState(fallingState);
+        }
+        else if (currentState == fallingState && IsGrounded()) {
             TransitionToState(idleState);
         }
     }
