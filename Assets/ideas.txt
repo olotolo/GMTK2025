@@ -1,0 +1,12 @@
+For collision objects:
+	- Switch direction
+	- push back
+	
+	-pressure plate that e.g. open the gate to Escape or smth. 
+	
+	- enemies? 
+
+	- slow down (like a powerup that disappears)
+	- Speed up
+	- increase jump height 
+	

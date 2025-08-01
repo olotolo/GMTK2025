@@ -12,6 +12,12 @@ public class Player : MonoBehaviour
         {
             _door.GetComponent<Door_Controller>().IsOpen = !_door.GetComponent<Door_Controller>().IsOpen;
         }
+        if (collision.CompareTag("Switch")) 
+        {
+        _circle.GetComponent<RotateCircle>().rotationSpeed *= -1;
+        _camera.GetComponent<RotateCircle>().rotationSpeed *= -1;
+        }
+
     }
 
 }
