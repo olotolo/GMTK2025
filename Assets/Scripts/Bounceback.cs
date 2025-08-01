@@ -1,0 +1,34 @@
+using UnityEngine;
+
+public class NewMonoBehaviourScript : MonoBehaviour
+{
+    [SerializeField] RotationController _rotationManager;
+    [SerializeField] float _bounceBackTime;
+    private bool _inBounceback = false;
+    private float _bounceTime = 0.0f;
+    private float _rotationStartSpeed;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        _inBounceback = true;
+    }
+
+    private void Update()
+    {
+        if (_inBounceback && _bounceTime <= 0.0)
+        {
+            _bounceTime = _bounceBackTime;
+            _rotationManager.levelRotationSpeed *= -1;
+            _rotationStartSpeed =_rotationManager.levelRotationSpeed;
+            _inBounceback = false;
+        }
+
+        if (_bounceTime > 0.0f)
+        {
+            Debug.Log(_bounceTime);
+            _rotationManager.levelRotationSpeed = 2*(_bounceTime - _bounceBackTime / 2)/_bounceBackTime *_rotationStartSpeed;
+            _bounceTime -= Time.deltaTime;
+        }
+
+    }
+}
