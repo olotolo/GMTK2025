@@ -11,6 +11,13 @@ public class ReverseRotationSingleDirection : MonoBehaviour
         {
             _rotationManager = FindFirstObjectByType<RotationController>();
         }
+
+        if (!_clockwise)
+        {
+            Vector3 _scale = transform.localScale;
+            _scale.x *= -1;
+            transform.localScale = _scale;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

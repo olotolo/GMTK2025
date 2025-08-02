@@ -40,6 +40,7 @@ public class SceneChanger : MonoBehaviour {
         _blackScreen.color = _color;
         _currentLevelUI.SetActive(true);
         Destroy(_pressButtonUI);
+        ChangeLevelText();
 
         _isFading = false;
     }
