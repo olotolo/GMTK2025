@@ -1,15 +1,57 @@
+using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneChanger : MonoBehaviour {
     [SerializeField] private string[] _sceneNames;
     [SerializeField] private Scene[] _scene;
+    [SerializeField] Image _blackScreen;
+
+    [SerializeField] private float fadeSpeed = 0.01f;
+    [SerializeField] private float fadeStep = 0.01f;
     public void ChangeScene(string sceneName) {
-        SceneManager.LoadScene(sceneName); 
-        ChangeLevelText();
+        StartFadeToScene(sceneName);
     }
+
+    private bool _isFading = false;
+
+    public void StartFadeToScene(string sceneName) {
+        if (!_isFading)
+            StartCoroutine(FadeAndSwitchScene(sceneName));
+    }
+
+    private IEnumerator FadeAndSwitchScene(string sceneName) {
+        _isFading = true;
+
+        // Fade to black
+        while (_blackScreen.color.a < 1f) {
+            Color color = _blackScreen.color;
+            color.a += fadeStep;
+            _blackScreen.color = color;
+            yield return new WaitForSeconds(fadeSpeed);
+        }
+
+        // Load new scene
+        SceneManager.LoadScene(sceneName);
+
+        
+
+        _isFading = false;
+    }
+
+    public IEnumerator FadeToNormal() {
+        Color color = _blackScreen.color;
+        color.a = Mathf.Max(0, 0f);
+        _blackScreen.color = color;
+
+        yield return new WaitForSeconds(fadeSpeed);
+    }
+
+
+
+
 
     int _currentLevel = -1;
     [SerializeField] GameObject _currentLevelUI;
