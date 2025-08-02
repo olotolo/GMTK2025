@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
 
     public void MirrorSprite()
     {
-        _sprite.transform.localScale = new Vector3(-1f, 1f, 1f);
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
     
 }

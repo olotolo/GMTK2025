@@ -17,7 +17,7 @@ public class PlayerStateMachine : MonoBehaviour {
     private WalkingState walkingState;
     private RunningState runningState;
 
-    [SerializeField] public SpriteRenderer _idle;
+    [SerializeField] public SpriteRenderer _running;
     [SerializeField] public SpriteRenderer _walking;
     [SerializeField] public SpriteRenderer _jumping;
     [SerializeField] public SpriteRenderer _falling;
@@ -39,7 +39,7 @@ public class PlayerStateMachine : MonoBehaviour {
 
 
     public void DisableAllSpriteRenderers() {
-        _idle.gameObject.SetActive(false);
+        _running.gameObject.SetActive(false);
         _walking.gameObject.SetActive(false);
         _jumping.gameObject.SetActive(false);
         _falling.gameObject.SetActive(false);
