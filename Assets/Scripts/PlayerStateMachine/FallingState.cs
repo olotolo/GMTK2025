@@ -9,7 +9,7 @@ public class FallingState : PlayerState {
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        Debug.Log("enter fallung state");
+        Debug.Log("enter falling state");
     }
 
 
