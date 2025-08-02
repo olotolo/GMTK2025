@@ -4,6 +4,11 @@ public class ReverseRotation : MonoBehaviour
 {
     [SerializeField] RotationController _rotationManager;
 
+    private void Start() {
+        if (_rotationManager == null) {
+            _rotationManager = FindFirstObjectByType<RotationController>();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _rotationManager.levelRotationSpeed *= -1;

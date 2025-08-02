@@ -13,6 +13,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         _inBounceback = true;
     }
 
+    private void Start() {
+        if(_rotationManager == null) {
+            _rotationManager = FindFirstObjectByType<RotationController>();
+        }
+    }
+
     private void Update()
     {
         if (_inBounceback && _bounceTime <= 0.0)
