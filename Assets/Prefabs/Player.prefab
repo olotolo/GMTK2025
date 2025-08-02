@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostedFor: 0
+  _sprite: {fileID: 9087905551014691676}
 --- !u!50 &6958732832583734928
 Rigidbody2D:
   serializedVersion: 5
