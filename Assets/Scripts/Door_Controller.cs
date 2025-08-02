@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door_Controller : MonoBehaviour
 {
@@ -98,6 +99,12 @@ public class Door_Controller : MonoBehaviour
         }
 
         IsOpen = defaultIsOpen;  // Return to default
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(IsOpen) {
+            FindFirstObjectByType<SceneChanger>().LoadNextLevel();
+        }
     }
 
 }
