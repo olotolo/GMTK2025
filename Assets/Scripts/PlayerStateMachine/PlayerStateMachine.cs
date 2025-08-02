@@ -6,6 +6,8 @@ public class PlayerStateMachine : MonoBehaviour {
     [Header("Jumping")]
     public float jumpForce = 10f;
     public float coyoteTime = 0.0f;
+    public float gravityScale = 1.0f;
+    public float fallingGravityScale = 1.5f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -33,7 +35,7 @@ public class PlayerStateMachine : MonoBehaviour {
 
         // Create instances of all states
         jumpingState = new JumpingState(jumpForce);
-        fallingState = new FallingState();
+        fallingState = new FallingState(gravityScale, fallingGravityScale);
         walkingState = new WalkingState();
         runningState = new RunningState();
 
