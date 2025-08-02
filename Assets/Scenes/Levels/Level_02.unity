@@ -1830,10 +1830,6 @@ PrefabInstance:
       value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 3707527585252729505, guid: cb53cb6f926b23d4889d5cb65f0df68f, type: 3}
-      propertyPath: showLights
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3707527585252729505, guid: cb53cb6f926b23d4889d5cb65f0df68f, type: 3}
       propertyPath: defaultIsOpen
       value: 0
       objectReference: {fileID: 0}
