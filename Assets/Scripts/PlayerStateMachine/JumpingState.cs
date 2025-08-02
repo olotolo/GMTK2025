@@ -11,6 +11,7 @@ public class JumpingState : PlayerState {
         Debug.Log("jupming state");
         base.EnterState(playerRb, groundCheck, groundCheckRadius);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        //playerRb.GetComponent<PlayerStateMachine>().DisableAllSpriteRenderers();
     }
 
     public override void UpdateState() {

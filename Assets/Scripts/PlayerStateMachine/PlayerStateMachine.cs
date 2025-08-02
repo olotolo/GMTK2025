@@ -12,20 +12,37 @@ public class PlayerStateMachine : MonoBehaviour {
     private Rigidbody2D rb;
     private PlayerState currentState;
 
-    private IdleState idleState;
     private JumpingState jumpingState;
     private FallingState fallingState;
+    private WalkingState walkingState;
+    private RunningState runningState;
+
+    [SerializeField] public SpriteRenderer _idle;
+    [SerializeField] public SpriteRenderer _walking;
+    [SerializeField] public SpriteRenderer _jumping;
+    [SerializeField] public SpriteRenderer _falling;
+
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
 
         // Create instances of all states
-        idleState = new IdleState();
         jumpingState = new JumpingState(jumpForce);
         fallingState = new FallingState();
+        walkingState = new WalkingState();
+        runningState = new RunningState();
+
 
         // Set the initial state
-        TransitionToState(idleState);
+        TransitionToState(walkingState);
+    }
+
+
+    public void DisableAllSpriteRenderers() {
+        _idle.gameObject.SetActive(false);
+        _walking.gameObject.SetActive(false);
+        _jumping.gameObject.SetActive(false);
+        _falling.gameObject.SetActive(false);
     }
 
     void Update() {
@@ -35,18 +52,25 @@ public class PlayerStateMachine : MonoBehaviour {
         }
     }
 
+    private bool walkingOrRunning() {
+        if (currentState == walkingState || currentState == runningState) {
+            return true;
+        }
+        return false;
+    }
+
     private void CheckForStateTransition() {
-        if (currentState == idleState && Input.GetButtonDown("Jump") && IsGrounded()) {
+        if (walkingOrRunning() && Input.GetButtonDown("Jump") && IsGrounded()) {
             TransitionToState(jumpingState);
         }
-        else if (currentState == idleState && !IsGrounded()) {
+        else if (walkingOrRunning() && !IsGrounded()) {
             TransitionToState(fallingState);
         }
         else if (currentState == jumpingState && rb.linearVelocity.y <= 0) {
             TransitionToState(fallingState);
         }
         else if (currentState == fallingState && IsGrounded()) {
-            TransitionToState(idleState);
+            TransitionToState(walkingState);
         }
     }
 

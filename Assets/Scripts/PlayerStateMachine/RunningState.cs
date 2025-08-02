@@ -1,15 +1,13 @@
 using UnityEngine;
 
-public class IdleState : PlayerState {
+public class RunningState : PlayerState
+{
     public override void UpdateState() {
-        // Transition to JumpingState
-        if (Input.GetButtonDown("Jump")) {
-            // The actual jump logic will be in the JumpingState's EnterState
-        }
+        
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        Debug.Log("enter idle state");
+        Debug.Log("enter running state");
     }
 
     public override void ExitState() {
