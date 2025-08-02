@@ -254,6 +254,7 @@ MonoBehaviour:
   allowedJumpInputTimeDiff: 0.2
   groundCheck: {fileID: 1947591180262726773}
   groundCheckRadius: 0.1
+  _player: {fileID: 8791682104389618561}
   _running: {fileID: 1429128030780806195}
   _walking: {fileID: 626223942970040096}
   _jumping: {fileID: 2092181939793123969}
@@ -441,7 +442,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5996242290340010789}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3d736f7bc7cca764bbed9baa48fe0012, type: 2}
   m_CullingMode: 0

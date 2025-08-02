@@ -26,6 +26,7 @@ public class PlayerStateMachine : MonoBehaviour {
     private WalkingState walkingState;
     private RunningState runningState;
 
+    [SerializeField] public Player _player;
     [SerializeField] public SpriteRenderer _running;
     [SerializeField] public SpriteRenderer _walking;
     [SerializeField] public SpriteRenderer _jumping;
@@ -111,6 +112,16 @@ public class PlayerStateMachine : MonoBehaviour {
             return;
         }
         if (currentState == fallingState && isGrounded) {
+            TransitionToState(walkingState);
+            return;
+        }
+        if(currentState == walkingState && _player.boostedFor > 0.0f)
+        {
+            TransitionToState(runningState);
+            return;
+        }
+        if (currentState == runningState && _player.boostedFor <= 0.0f)
+        {
             TransitionToState(walkingState);
             return;
         }
