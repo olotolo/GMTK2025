@@ -17,23 +17,9 @@ public class RotationController : MonoBehaviour
 
     private void Start()
     {
-        //Time.timeScale = 0.0f;
-        //relativeRotation = (levelRotationSpeed - cameraRotationSpeed);
-        //targetRotationSpeed = levelRotationSpeed;
-        //updateRotation();
-
-
-
-        //targetRotationSpeed = levelRotationSpeed;
-        //targetRotationSpeed = 0f;
-        //levelRotationSpeed = 0f;
-        //relativeRotation = (cameraRotationSpeed - targetRotationSpeed);
-
-
         relativeRotation = (levelRotationSpeed - cameraRotationSpeed);
         targetRotationSpeed = levelRotationSpeed;
         levelRotationSpeed = 0f;
-
 
         levelHasStarted = false;
 
@@ -45,7 +31,6 @@ public class RotationController : MonoBehaviour
     public void StartLevel() {
         if (levelHasStarted) return;
 
-        //Time.timeScale = 1.0f;
         if(_startGameUI != null) {
             Destroy(_startGameUI);
         }
@@ -61,6 +46,8 @@ public class RotationController : MonoBehaviour
         }
         updateRotation();
     }
+
+    public bool LevelHasStarted() { return levelHasStarted; }
 
     private void updateRotation()
     {

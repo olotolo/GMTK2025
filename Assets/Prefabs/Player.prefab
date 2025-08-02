@@ -255,10 +255,12 @@ MonoBehaviour:
   groundCheck: {fileID: 1947591180262726773}
   groundCheckRadius: 0.1
   _player: {fileID: 8791682104389618561}
+  _standing: {fileID: 4980303713103461310}
   _running: {fileID: 1429128030780806195}
   _walking: {fileID: 626223942970040096}
   _jumping: {fileID: 2092181939793123969}
   _falling: {fileID: 8076361792175462858}
+  _rotationManager: {fileID: 0}
 --- !u!1 &3957934382634114242
 GameObject:
   m_ObjectHideFlags: 0

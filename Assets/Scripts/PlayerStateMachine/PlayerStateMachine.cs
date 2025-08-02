@@ -25,14 +25,18 @@ public class PlayerStateMachine : MonoBehaviour {
     private FallingState fallingState;
     private WalkingState walkingState;
     private RunningState runningState;
+    private StandingState standingState;
 
     [SerializeField] public Player _player;
+    [SerializeField] public SpriteRenderer _standing;
     [SerializeField] public SpriteRenderer _running;
     [SerializeField] public SpriteRenderer _walking;
     [SerializeField] public SpriteRenderer _jumping;
     [SerializeField] public SpriteRenderer _falling;
 
     private EarlyInputHandler earlyJumpInputHandler;
+
+    [SerializeField] RotationController _rotationManager;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -41,14 +45,21 @@ public class PlayerStateMachine : MonoBehaviour {
         // For handling delayed jump inputs
         earlyJumpInputHandler = new EarlyInputHandler("Jump", allowedJumpInputTimeDiff);
 
+        // Find rotation manager
+        if (_rotationManager == null)
+        {
+            _rotationManager = FindFirstObjectByType<RotationController>();
+        }
+
         // Create instances of all states
         jumpingState = new JumpingState(jumpForce, gravityScale, variableJumpGravity);
         fallingState = new FallingState(gravityScale, fallingGravityScale);
         walkingState = new WalkingState();
         runningState = new RunningState();
+        standingState = new StandingState();
 
         // Set the initial state
-        TransitionToState(walkingState);
+        TransitionToState(standingState);
 
         FindFirstObjectByType<Mobile>()._jumpButtonForMobile
         .GetComponent<Button>()
@@ -62,6 +73,7 @@ public class PlayerStateMachine : MonoBehaviour {
 
 
     public void DisableAllSpriteRenderers() {
+        _standing.gameObject.SetActive(false);
         _running.gameObject.SetActive(false);
         _walking.gameObject.SetActive(false);
         _jumping.gameObject.SetActive(false);
@@ -91,6 +103,11 @@ public class PlayerStateMachine : MonoBehaviour {
     private void CheckForStateTransition() {
         bool isGrounded = IsGrounded();
         bool jumpWasPressed = earlyJumpInputHandler.WasPressed();
+
+        if ((currentState == standingState) && _rotationManager.LevelHasStarted())
+        {
+            TransitionToState(walkingState);
+        }
 
         if (walkingOrRunning() && jumpWasPressed && (isGrounded))
         {
