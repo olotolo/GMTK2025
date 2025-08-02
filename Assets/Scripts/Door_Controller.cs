@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Door_Controller : MonoBehaviour
 {
     [SerializeField] private bool defaultIsOpen = false;
+    [SerializeField] RotationController _rotationManager;
     private bool _isOpen;
     private SpriteRenderer _spriteRenderer;
 
@@ -41,6 +42,10 @@ public class Door_Controller : MonoBehaviour
         _isOpen = defaultIsOpen;
         UpdateDoorSprite();
         UpdateLightVisibility();
+        if (_rotationManager == null)
+        {
+            _rotationManager = FindFirstObjectByType<RotationController>();
+        }
     }
 
     private void UpdateDoorSprite()
@@ -103,7 +108,9 @@ public class Door_Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(IsOpen) {
+
             FindFirstObjectByType<SceneChanger>().LoadNextLevel();
+            _rotationManager.levelRotationSpeed = 0.0f;
         }
     }
 
