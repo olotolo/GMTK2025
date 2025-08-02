@@ -8,7 +8,7 @@ public class Door_Controller : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private GameObject[] lights; // Assign in Inspector
-    [SerializeField] private bool showLights = true; // Control whether light sprites are rendered
+    [SerializeField] private bool showLights = true; // Control visibility of light objects
 
     [Header("Door Sprites")]
     [SerializeField] private Sprite doorClosedSprite;
@@ -30,7 +30,7 @@ public class Door_Controller : MonoBehaviour
         set
         {
             _isOpen = value;
-            UpdateSprite();
+            UpdateDoorSprite();
         }
     }
 
@@ -38,11 +38,11 @@ public class Door_Controller : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _isOpen = defaultIsOpen;
-        UpdateSprite();
+        UpdateDoorSprite();
         UpdateLightVisibility();
     }
 
-    private void UpdateSprite()
+    private void UpdateDoorSprite()
     {
         if (_spriteRenderer == null) return;
         _spriteRenderer.sprite = _isOpen ? doorOpenSprite : doorClosedSprite;
@@ -52,9 +52,8 @@ public class Door_Controller : MonoBehaviour
     {
         foreach (var lightObj in lights)
         {
-            var sr = lightObj.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.enabled = showLights;
+            if (lightObj != null)
+                lightObj.SetActive(showLights);
         }
     }
 
@@ -71,15 +70,16 @@ public class Door_Controller : MonoBehaviour
 
     private IEnumerator HandleLightsSequence(int duration)
     {
-        IsOpen = true;
+        bool targetState = !defaultIsOpen;  // Invert the default state
+        IsOpen = targetState;
 
         if (showLights)
         {
             foreach (var lightObj in lights)
             {
-                var sr = lightObj.GetComponent<SpriteRenderer>();
-                if (sr != null)
-                    sr.color = Color.yellow;
+                var controller = lightObj.GetComponent<LightController>();
+                if (controller != null)
+                    controller.SetLight(true);
             }
         }
 
@@ -89,14 +89,15 @@ public class Door_Controller : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
 
-            if (showLights)
+            if (showLights && lights[i] != null)
             {
-                var sr = lights[i].GetComponent<SpriteRenderer>();
-                if (sr != null)
-                    sr.color = Color.grey;
+                var controller = lights[i].GetComponent<LightController>();
+                if (controller != null)
+                    controller.SetLight(false);
             }
         }
 
-        IsOpen = false;
+        IsOpen = defaultIsOpen;  // Return to default
     }
+
 }

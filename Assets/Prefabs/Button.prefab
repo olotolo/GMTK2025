@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _door: {fileID: 0}
-  _mode: 0
+  _mode: 1
   doorOpenTime: 5
   buttonReactivationTime: 3
   buttonStage1: {fileID: 21300000, guid: 6b142b54ed05141fba40d067c7926c80, type: 3}
