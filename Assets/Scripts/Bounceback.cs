@@ -29,7 +29,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         if (_bounceTime > 0.0f)
         {
-            _rotationManager.levelRotationSpeed = -2 * (_bounceTime - _bounceBackTime / 2) / _bounceBackTime * _rotationManager.targetRotationSpeed; //*_rotationStartSpeed;
+            _rotationManager.levelRotationSpeed = -2 * (_bounceTime - _bounceBackTime / 2) / _bounceBackTime * _rotationManager.targetRotationSpeed; 
             _bounceTime -= Time.deltaTime;
         }
 
