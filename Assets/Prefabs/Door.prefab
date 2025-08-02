@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4067028539582110496}
   - component: {fileID: 4560177296004537295}
-  - component: {fileID: 6242840649602224960}
   - component: {fileID: 3707527585252729505}
+  - component: {fileID: 5994515204788462749}
   m_Layer: 0
   m_Name: DoorSprite
   m_TagString: Untagged
@@ -93,8 +93,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6242840649602224960
-BoxCollider2D:
+--- !u!114 &3707527585252729505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215777865451430281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b775bca1bc4dd4d4b92eb3074342b247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultIsOpen: 0
+  _rotationManager: {fileID: 0}
+  lights:
+  - {fileID: 3386975023600738484}
+  - {fileID: 8857148423839295575}
+  - {fileID: 5393927165008503750}
+  - {fileID: 5941618919370502683}
+  showLights: 1
+  doorClosedSprite: {fileID: 21300000, guid: 62db4d84021cd214aa9c188006a47ad3, type: 3}
+  doorOpenSprite: {fileID: 21300000, guid: 8e5a4a1a819b78d44a0dbd46188e981d, type: 3}
+--- !u!70 &5994515204788462749
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,39 +149,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0015338659, y: -0.21960115}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.5001185, y: 1.5557947}
-  m_EdgeRadius: 0
---- !u!114 &3707527585252729505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215777865451430281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b775bca1bc4dd4d4b92eb3074342b247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultIsOpen: 0
-  lights:
-  - {fileID: 3386975023600738484}
-  - {fileID: 8857148423839295575}
-  - {fileID: 5393927165008503750}
-  - {fileID: 5941618919370502683}
-  showLights: 1
-  doorClosedSprite: {fileID: 21300000, guid: 62db4d84021cd214aa9c188006a47ad3, type: 3}
-  doorOpenSprite: {fileID: 21300000, guid: 8e5a4a1a819b78d44a0dbd46188e981d, type: 3}
+  m_Offset: {x: 0, y: -0.45}
+  m_Size: {x: 1, y: 1.2}
+  m_Direction: 0
 --- !u!1 &2375609721423935399
 GameObject:
   m_ObjectHideFlags: 0
