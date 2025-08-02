@@ -38,5 +38,11 @@ public class SpeedBoost : MonoBehaviour
                 _currentlyBoosted = false;
             }
         }
+
+
+        // Set treadmill sprite in the correct direction
+        Vector3 _scale = transform.localScale;
+        _scale.x = Mathf.Abs(transform.localScale.x) * Mathf.Sign(_rotationManager.levelRotationSpeed);
+        transform.localScale = _scale;
     }
 }
