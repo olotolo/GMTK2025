@@ -38,7 +38,8 @@ public class SceneChanger : MonoBehaviour {
         Color _color = _blackScreen.color;
         _color.a = 0;
         _blackScreen.color = _color;
-
+        _currentLevelUI.SetActive(true);
+        Destroy(_pressButtonUI);
 
         _isFading = false;
     }
@@ -66,8 +67,7 @@ public class SceneChanger : MonoBehaviour {
     private void StartFirstLevel() {
         _currentLevel = 0;
         ChangeScene(_sceneNames[_currentLevel]);
-        _currentLevelUI.SetActive(true);
-        Destroy(_pressButtonUI);
+        
     }
 
     bool _started = false;
