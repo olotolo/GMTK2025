@@ -11,6 +11,7 @@ public class ReverseRotation : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        _rotationManager.targetRotationSpeed *= -1;
         _rotationManager.levelRotationSpeed *= -1;
         if (collision.tag == "Player")
         {

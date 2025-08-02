@@ -8,7 +8,6 @@ public class RotationController : MonoBehaviour
     public float levelRotationSpeed;
     public float relativeRotation;
     public float targetRotationSpeed;
-
     [SerializeField] GameObject _startGameUI;
     [SerializeField] bool _skipStartUI;
  
