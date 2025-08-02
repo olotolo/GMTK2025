@@ -8,7 +8,6 @@ public class JumpingState : PlayerState {
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        Debug.Log("jupming state");
         base.EnterState(playerRb, groundCheck, groundCheckRadius);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         playerRb.GetComponent<PlayerStateMachine>().DisableAllSpriteRenderers();
@@ -16,10 +15,7 @@ public class JumpingState : PlayerState {
     }
 
     public override void UpdateState() {
-        // Transition to FallingState
-        if (rb.linearVelocity.y < 0) {
-            // Player has started to fall
-        }
+        
     }
 
     public override void ExitState() {

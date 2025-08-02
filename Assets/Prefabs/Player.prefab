@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 3
+  coyoteTime: 0.2
   groundCheck: {fileID: 1947591180262726773}
   groundCheckRadius: 0.1
   _running: {fileID: 1429128030780806195}

@@ -5,10 +5,14 @@ using UnityEngine.UI;
 public class PlayerStateMachine : MonoBehaviour {
     [Header("Jumping")]
     public float jumpForce = 10f;
+    public float coyoteTime = 0.0f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
+
+
+    private float timeSinceGrounded;
 
     private Rigidbody2D rb;
     private PlayerState currentState;
@@ -23,9 +27,9 @@ public class PlayerStateMachine : MonoBehaviour {
     [SerializeField] public SpriteRenderer _jumping;
     [SerializeField] public SpriteRenderer _falling;
 
-
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        timeSinceGrounded = 0.0f;
 
         // Create instances of all states
         jumpingState = new JumpingState(jumpForce);
@@ -56,6 +60,8 @@ public class PlayerStateMachine : MonoBehaviour {
     }
 
     void Update() {
+        UpdateCoyoteTimer();
+
         if (currentState != null) {
             currentState.UpdateState();
             CheckForStateTransition();
@@ -73,15 +79,30 @@ public class PlayerStateMachine : MonoBehaviour {
     
 
     private void CheckForStateTransition() {
-        if (walkingOrRunning() && Input.GetButtonDown("Jump") && IsGrounded()) {
+        bool isGrounded = IsGrounded();
+
+        if (walkingOrRunning() && Input.GetButtonDown("Jump") && (isGrounded))
+        {
             TransitionToState(jumpingState);
+            return;
         }
-        else if (walkingOrRunning() && !IsGrounded()) {
+        if ((currentState == fallingState) && Input.GetButtonDown("Jump") && (timeSinceGrounded <= coyoteTime)) {
+            TransitionToState(jumpingState);
+            return;
+        }
+        if ((currentState == jumpingState) && rb.linearVelocity.y <= 0)
+        {
             TransitionToState(fallingState);
-        } else if (currentState == jumpingState && rb.linearVelocity.y <= 0) {
+            return;
+        }
+        if ((!isGrounded) && rb.linearVelocity.y <= 0)
+        {
             TransitionToState(fallingState);
-        } else if (currentState == fallingState && IsGrounded()) {
+            return;
+        }
+        if (currentState == fallingState && isGrounded) {
             TransitionToState(walkingState);
+            return;
         }
     }
 
@@ -102,6 +123,14 @@ public class PlayerStateMachine : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    private void UpdateCoyoteTimer() {
+        if (IsGrounded()) {
+            timeSinceGrounded = 0.0f;
+            return;
+        }
+        timeSinceGrounded += Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected() {
