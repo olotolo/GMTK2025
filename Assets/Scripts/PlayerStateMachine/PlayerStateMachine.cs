@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStateMachine : MonoBehaviour {
@@ -35,6 +36,15 @@ public class PlayerStateMachine : MonoBehaviour {
 
         // Set the initial state
         TransitionToState(walkingState);
+
+        FindFirstObjectByType<Mobile>()._jumpButtonForMobile
+        .GetComponent<Button>()
+        .onClick
+        .AddListener(() => {
+            if(IsGrounded() && walkingOrRunning()) {
+                TransitionToState(jumpingState);
+            }
+        });
     }
 
 
@@ -59,17 +69,18 @@ public class PlayerStateMachine : MonoBehaviour {
         return false;
     }
 
+    
+    
+
     private void CheckForStateTransition() {
         if (walkingOrRunning() && Input.GetButtonDown("Jump") && IsGrounded()) {
             TransitionToState(jumpingState);
         }
         else if (walkingOrRunning() && !IsGrounded()) {
             TransitionToState(fallingState);
-        }
-        else if (currentState == jumpingState && rb.linearVelocity.y <= 0) {
+        } else if (currentState == jumpingState && rb.linearVelocity.y <= 0) {
             TransitionToState(fallingState);
-        }
-        else if (currentState == fallingState && IsGrounded()) {
+        } else if (currentState == fallingState && IsGrounded()) {
             TransitionToState(walkingState);
         }
     }

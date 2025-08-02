@@ -8,6 +8,11 @@ public class SpeedBoost : MonoBehaviour
     private bool _currentlyBoosted;
     private GameObject _boostedObject;
 
+    private void Start() {
+        if (_rotationManager == null) {
+            _rotationManager = FindFirstObjectByType<RotationController>();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _boostedObject = collision.gameObject;
