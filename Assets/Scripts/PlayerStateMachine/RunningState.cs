@@ -7,7 +7,9 @@ public class RunningState : PlayerState
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        Debug.Log("enter running state");
+
+        playerRb.GetComponent<PlayerStateMachine>().DisableAllSpriteRenderers();
+        playerRb.GetComponent<PlayerStateMachine>()._running.gameObject.SetActive(true);
     }
 
     public override void ExitState() {

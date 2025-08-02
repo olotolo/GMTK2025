@@ -9,7 +9,8 @@ public class FallingState : PlayerState {
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        Debug.Log("enter falling state");
+        playerRb.GetComponent<PlayerStateMachine>().DisableAllSpriteRenderers();
+        playerRb.GetComponent<PlayerStateMachine>()._falling.gameObject.SetActive(true);
     }
 
 
