@@ -35,8 +35,10 @@ public class SceneChanger : MonoBehaviour {
 
         // Load new scene
         SceneManager.LoadScene(sceneName);
+        Color _color = _blackScreen.color;
+        _color.a = 0;
+        _blackScreen.color = _color;
 
-        
 
         _isFading = false;
     }
