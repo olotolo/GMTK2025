@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3633118596377411830}
   m_Layer: 0
-  m_Name: PlatformFromBelow
+  m_Name: PlatformFromBelow_medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,14 +24,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5250490528562467410}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.3729094, w: 0.92786777}
-  m_LocalPosition: {x: -5.28, y: -3.99, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2768138892477521987}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -43.79}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7056942660852545655
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2768138892477521987}
   - component: {fileID: 1457955404292409735}
   - component: {fileID: 570515124286023920}
-  - component: {fileID: 2630868781442104151}
+  - component: {fileID: 8777857903500338851}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 7056942660852545655}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.37, z: 0}
+  m_LocalPosition: {x: 0, y: -6.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1610a652bb2f00744bfd98bce0b02ef1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df393863b475cba498b720d61efea9ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
---- !u!60 &2630868781442104151
-PolygonCollider2D:
+--- !u!61 &8777857903500338851
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -168,23 +168,15 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.06617093}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 1}
+    oldSize: {x: 2, y: 0.5}
     newSize: {x: 5, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.3855906, y: 0.43614987}
-      - {x: 0.92250466, y: 0.073652774}
-      - {x: -0.9325707, y: 0.07242994}
-      - {x: -1.9476222, y: 0.29869378}
-      - {x: -2.37817, y: 0.43253872}
-      - {x: -1.4980471, y: -0.13580856}
-      - {x: 1.5051714, y: -0.1276694}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 2, y: 0.13062811}
+  m_EdgeRadius: 0
