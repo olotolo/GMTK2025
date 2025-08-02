@@ -593,10 +593,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.106770836
-    y: -0.016666666
-    width: 0.33333334
-    height: 0.3333333
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -783,7 +783,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1066857664
@@ -840,6 +840,7 @@ MonoBehaviour:
   cameraRotationSpeed: 0
   levelRotationSpeed: 25
   relativeRotation: 0
+  targetRotationSpeed: 0
   _startGameUI: {fileID: 279267064}
   _skipStartUI: 0
 --- !u!4 &1221396761
@@ -1141,7 +1142,8 @@ PrefabInstance:
       propertyPath: _circle
       value: 
       objectReference: {fileID: 81395533}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1304656123862953857, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

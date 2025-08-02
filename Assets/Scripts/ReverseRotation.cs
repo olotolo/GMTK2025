@@ -7,5 +7,9 @@ public class ReverseRotation : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _rotationManager.levelRotationSpeed *= -1;
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<Player>().MirrorSprite();
+        }
     }
 }
