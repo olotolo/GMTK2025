@@ -224,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &119597954
 Transform:
   m_ObjectHideFlags: 0
@@ -616,6 +616,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &1038977243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9087905551014691676, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+  m_PrefabInstance: {fileID: 1912536526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1073158713
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,8 +652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 469303738}
   _level: {fileID: 181286367}
-  cameraRotationSpeed: 90
-  levelRotationSpeed: 90
+  cameraRotationSpeed: 55
+  levelRotationSpeed: 60
   relativeRotation: 0
   targetRotationSpeed: 0
   _startGameUI: {fileID: 0}
@@ -985,6 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostedFor: 0
+  _sprite: {fileID: 0}
 --- !u!4 &1116064887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 680766562991434219, guid: 2d4761ae2a03fb342addaa0235ecbc2d, type: 3}
@@ -1055,6 +1061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Booster (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6794287800346086427, guid: 2d4761ae2a03fb342addaa0235ecbc2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1068,6 +1078,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1368149881397649915, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368149881397649915, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368149881397649915, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3285990048892832424, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1128,6 +1150,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8791682104389618561, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+      propertyPath: _sprite
+      value: 
+      objectReference: {fileID: 1038977243}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1281,7 +1307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894200995218917776, guid: 81a68b8ce0f766840821a85cd3f03d96, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2901287412598446207, guid: 81a68b8ce0f766840821a85cd3f03d96, type: 3}
       propertyPath: _rotationManager
