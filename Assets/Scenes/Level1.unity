@@ -775,7 +775,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -4354248775225258120, guid: a2aa2612bfb267d49a1e428faa54d309, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2aa2612bfb267d49a1e428faa54d309, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -783,7 +783,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1066857664
@@ -1082,17 +1082,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1947591180262726773, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.011339366
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947591180262726773, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.49623
+    - target: {fileID: 1429128030780806195, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3285990048892832424, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982462183169638762, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8000254037273140929, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1134,16 +1134,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8791682104389618561, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 1001786394}
-    - target: {fileID: 8791682104389618561, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
-      propertyPath: _circle
-      value: 
-      objectReference: {fileID: 81395533}
-    m_RemovedComponents:
-    - {fileID: 1304656123862953857, guid: e972379e34ab10b4284cc57ac33ee0a6, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
