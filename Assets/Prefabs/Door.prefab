@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2884434345787429034}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.99992543, w: 0.012217075}
-  m_LocalPosition: {x: -0.3291076, y: -0.6105748, z: 0}
+  m_LocalPosition: {x: -0.376, y: 0.949, z: 0}
   m_LocalScale: {x: 0.3407448, y: 0.17705874, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 4360515044897299016}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.9999939, w: 0.0034907754}
-  m_LocalPosition: {x: 0.025718348, y: -0.6103855, z: 0}
+  m_LocalPosition: {x: -0.021, y: 0.949, z: 0}
   m_LocalScale: {x: 0.3409094, y: 0.17701337, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 6192027944444578057}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.99989, w: -0.014834583}
-  m_LocalPosition: {x: 0.37435746, y: -0.6046688, z: 0}
+  m_LocalPosition: {x: 0.328, y: 0.955, z: 0}
   m_LocalScale: {x: 0.3406599, y: 0.17708224, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -290,7 +290,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.65671736, w: 0.75413686}
   m_LocalPosition: {x: 0.4412, y: 0.0746, z: 0}
-  m_LocalScale: {x: 0.052929677, y: 0.09954985, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8615195633435062862}
@@ -342,8 +342,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.32341808, g: 0.32297972, b: 0.3584906, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 099d0e8591efd499ca65eb85baf3b09b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -391,7 +391,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -411,8 +411,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b775bca1bc4dd4d4b92eb3074342b247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultIsOpen: 1
   lights:
   - {fileID: 6192027944444578057}
   - {fileID: 4360515044897299016}
   - {fileID: 2884434345787429034}
-  showLights: 0
+  showLights: 1
+  doorClosedSprite: {fileID: 21300000, guid: 099d0e8591efd499ca65eb85baf3b09b, type: 3}
+  doorOpenSprite: {fileID: 21300000, guid: bc52925c75b994efbbce93cf54a95e06, type: 3}
