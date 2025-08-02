@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 85334c09957891b4fa06da626222738c
+guid: 80d609145e6e4a84694c6c1e84cda17b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 30515048727492248
-    second: OuterRing_0
+      213: 7184649951604084521
+    second: PlatformSolidSmall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OuterRing_0
+      name: PlatformSolidSmall_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 57
-        width: 526
-        height: 538
+        x: 1
+        y: 0
+        width: 22
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 896b4bf66496c6000800000000000000
-      internalID: 30515048727492248
+      spriteID: 92f83e8a01105b360800000000000000
+      internalID: 7184649951604084521
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OuterRing_0: 30515048727492248
+      PlatformSolidSmall_0: 7184649951604084521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

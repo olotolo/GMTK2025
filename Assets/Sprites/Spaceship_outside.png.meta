@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b29378a0ea660f48aa0e62b8f657754
+guid: ef045ef08a7e0174f9a8caa746d2e9c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2501594116245325614
-    second: PlayerFall 1_0
+      213: 1491775524538382875
+    second: Spaceship_outside_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerFall 1_0
+      name: Spaceship_outside_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 11
-        height: 17
+        x: 57
+        y: 57
+        width: 526
+        height: 538
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e27820f389277b220800000000000000
-      internalID: 2501594116245325614
+      spriteID: b1a7bb09fe9d3b410800000000000000
+      internalID: 1491775524538382875
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerFall 1_0: 2501594116245325614
+      Spaceship_outside_0: 1491775524538382875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
