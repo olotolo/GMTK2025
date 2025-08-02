@@ -9,6 +9,7 @@ public class PlayerStateMachine : MonoBehaviour {
     public float gravityScale = 1.0f;
     public float fallingGravityScale = 1.5f;
     public float variableJumpGravity = 2.0f;
+    public float allowedJumpInputTimeDiff = 0.01f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -30,16 +31,20 @@ public class PlayerStateMachine : MonoBehaviour {
     [SerializeField] public SpriteRenderer _jumping;
     [SerializeField] public SpriteRenderer _falling;
 
+    private EarlyInputHandler earlyJumpInputHandler;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         timeSinceGrounded = 0.0f;
+
+        // For handling delayed jump inputs
+        earlyJumpInputHandler = new EarlyInputHandler("Jump", allowedJumpInputTimeDiff);
 
         // Create instances of all states
         jumpingState = new JumpingState(jumpForce, gravityScale, variableJumpGravity);
         fallingState = new FallingState(gravityScale, fallingGravityScale);
         walkingState = new WalkingState();
         runningState = new RunningState();
-
 
         // Set the initial state
         TransitionToState(walkingState);
@@ -64,6 +69,7 @@ public class PlayerStateMachine : MonoBehaviour {
 
     void Update() {
         UpdateCoyoteTimer();
+        earlyJumpInputHandler.Update();
 
         if (currentState != null) {
             currentState.UpdateState();
@@ -83,13 +89,14 @@ public class PlayerStateMachine : MonoBehaviour {
 
     private void CheckForStateTransition() {
         bool isGrounded = IsGrounded();
+        bool jumpWasPressed = earlyJumpInputHandler.WasPressed();
 
-        if (walkingOrRunning() && Input.GetButtonDown("Jump") && (isGrounded))
+        if (walkingOrRunning() && jumpWasPressed && (isGrounded))
         {
             TransitionToState(jumpingState);
             return;
         }
-        if ((currentState == fallingState) && Input.GetButtonDown("Jump") && (timeSinceGrounded <= coyoteTime)) {
+        if ((currentState == fallingState) && jumpWasPressed && (timeSinceGrounded <= coyoteTime)) {
             TransitionToState(jumpingState);
             return;
         }
