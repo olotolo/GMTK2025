@@ -659,7 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 407030972}
   _level: {fileID: 81395533}
-  cameraRotationSpeed: 0
+  cameraRotationSpeed: 20
   levelRotationSpeed: 25
   relativeRotation: 0
   targetRotationSpeed: 0
