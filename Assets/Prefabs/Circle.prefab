@@ -118,6 +118,7 @@ MonoBehaviour:
   _camera: {fileID: 0}
   _level: {fileID: 1118547908217865955}
   cameraRotationSpeed: 20
+  normalLevelRotationSpeed: 25
   levelRotationSpeed: 25
   relativeRotation: 0
   targetRotationSpeed: 0

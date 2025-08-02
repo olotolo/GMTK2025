@@ -35,12 +35,22 @@ public class SceneChanger : MonoBehaviour {
 
         // Load new scene
         SceneManager.LoadScene(sceneName);
-        Color _color = _blackScreen.color;
-        _color.a = 0;
-        _blackScreen.color = _color;
+
+        //Color _color = _blackScreen.color;
+        //_color.a = 0;
+        //_blackScreen.color = _color;
         _currentLevelUI.SetActive(true);
         Destroy(_pressButtonUI);
         ChangeLevelText();
+
+        // Fade to white
+        while (_blackScreen.color.a > 0f)
+        {
+            Color color = _blackScreen.color;
+            color.a -= fadeStep;
+            _blackScreen.color = color;
+            yield return new WaitForSeconds(fadeSpeed);
+        }
 
         _isFading = false;
     }

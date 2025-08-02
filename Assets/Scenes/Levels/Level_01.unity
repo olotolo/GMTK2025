@@ -706,10 +706,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1001786394}
     - target: {fileID: 5779350849350540994, guid: 658637b42cef17e4ca794fc27d7a0c55, type: 3}
-      propertyPath: _skipStartUI
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5779350849350540994, guid: 658637b42cef17e4ca794fc27d7a0c55, type: 3}
       propertyPath: _startGameUI
       value: 
       objectReference: {fileID: 279267064}
