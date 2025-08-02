@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class Door_Controller : MonoBehaviour
 {
+    [SerializeField] private bool defaultIsOpen = false;
     private bool _isOpen;
     private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private GameObject[] lights; // Assign in Inspector
     [SerializeField] private bool showLights = true; // Control whether light sprites are rendered
+
+    [Header("Door Sprites")]
+    [SerializeField] private Sprite doorClosedSprite;
+    [SerializeField] private Sprite doorOpenSprite;
 
     public bool ShowLights
     {
@@ -25,21 +30,22 @@ public class Door_Controller : MonoBehaviour
         set
         {
             _isOpen = value;
-            UpdateColor();
+            UpdateSprite();
         }
     }
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        UpdateColor();
+        _isOpen = defaultIsOpen;
+        UpdateSprite();
         UpdateLightVisibility();
     }
 
-    private void UpdateColor()
+    private void UpdateSprite()
     {
         if (_spriteRenderer == null) return;
-        _spriteRenderer.color = _isOpen ? Color.black : Color.grey;
+        _spriteRenderer.sprite = _isOpen ? doorOpenSprite : doorClosedSprite;
     }
 
     private void UpdateLightVisibility()
