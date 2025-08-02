@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ButtonController : MonoBehaviour
 {
-    [SerializeField] GameObject _door;
+    [SerializeField] GameObject _targetObject;
 
     public enum Mode
     {
@@ -33,15 +33,15 @@ public class ButtonController : MonoBehaviour
         if (collision.CompareTag("Player") && isActivated)
         {
             Debug.Log("Button triggered!");
-            var doorController = _door.GetComponent<Door_Controller>();
+            var activatable = _targetObject.GetComponent<IActivatable>();
 
             if (_mode == Mode.Toggle)
             {
-                doorController.Toggle();
+                activatable.Toggle();
             }
             else if (_mode == Mode.SetTimer)
             {
-                doorController.OpenTemporarily(doorOpenTime);
+                activatable.OpenTemporarily(doorOpenTime);
             }
 
             StartCoroutine(HandleReactivationSequence());

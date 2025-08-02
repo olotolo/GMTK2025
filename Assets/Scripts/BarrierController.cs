@@ -1,19 +1,19 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Door_Controller : MonoBehaviour, IActivatable
+public class BarrierController : MonoBehaviour, IActivatable
 {
     [SerializeField] private bool defaultIsOpen = false;
     private bool _isOpen;
     private SpriteRenderer _spriteRenderer;
+    private BoxCollider2D _boxCollider;
 
-    [SerializeField] private GameObject[] lights; // Assign in Inspector
-    [SerializeField] private bool showLights = true; // Control visibility of light objects
+    [SerializeField] private GameObject[] lights;
+    [SerializeField] private bool showLights = true;
 
-    [Header("Door Sprites")]
-    [SerializeField] private Sprite doorClosedSprite;
-    [SerializeField] private Sprite doorOpenSprite;
+    [Header("Barrier Sprites")]
+    [SerializeField] private Sprite barrierClosedSprite;
+    [SerializeField] private Sprite barrierOpenSprite;
 
     public bool ShowLights
     {
@@ -31,22 +31,34 @@ public class Door_Controller : MonoBehaviour, IActivatable
         set
         {
             _isOpen = value;
-            UpdateDoorSprite();
+            UpdateBarrierSprite();
+            UpdateColliderState();  // Enable/disable collider when open/closed
         }
     }
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _boxCollider = GetComponent<BoxCollider2D>();
+
         _isOpen = defaultIsOpen;
-        UpdateDoorSprite();
+        UpdateBarrierSprite();
         UpdateLightVisibility();
+        UpdateColliderState();  // Set initial collider state
     }
 
-    private void UpdateDoorSprite()
+    private void UpdateBarrierSprite()
     {
         if (_spriteRenderer == null) return;
-        _spriteRenderer.sprite = _isOpen ? doorOpenSprite : doorClosedSprite;
+        _spriteRenderer.sprite = _isOpen ? barrierOpenSprite : barrierClosedSprite;
+    }
+
+    private void UpdateColliderState()
+    {
+        if (_boxCollider != null)
+        {
+            _boxCollider.enabled = !_isOpen;
+        }
     }
 
     private void UpdateLightVisibility()
@@ -71,7 +83,7 @@ public class Door_Controller : MonoBehaviour, IActivatable
 
     private IEnumerator HandleLightsSequence(int duration)
     {
-        bool targetState = !defaultIsOpen;  // Invert the default state
+        bool targetState = !defaultIsOpen;
         IsOpen = targetState;
 
         if (showLights)
@@ -98,13 +110,6 @@ public class Door_Controller : MonoBehaviour, IActivatable
             }
         }
 
-        IsOpen = defaultIsOpen;  // Return to default
+        IsOpen = defaultIsOpen;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if(IsOpen) {
-            FindFirstObjectByType<SceneChanger>().LoadNextLevel();
-        }
-    }
-
 }
