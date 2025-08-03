@@ -37,6 +37,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         else if (_bounceTime > 0.0f && Mathf.Sign(_rotationManager.targetRotationSpeed) != _startSign)
         {
             _rotationManager.levelRotationSpeed = _rotationManager.targetRotationSpeed;
+            _bounceTime = 0.0f;
         }
 
     }
