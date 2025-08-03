@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9221903028052255594}
   - component: {fileID: 3739389519859346920}
   - component: {fileID: 7017873035350736162}
+  - component: {fileID: 4833884289648956332}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -152,6 +153,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0
+--- !u!114 &4833884289648956332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473021050724535313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55b726895a5903448e69786f5a42919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 2132365626907019170, guid: 2a6b91ae8f1790f4b8f8184e732ad4bd, type: 3}
+  numberOfStars: 350
+  spawnWidth: 25
+  spawnHeight: 14
+  doAnimate: 0.7
 --- !u!1 &8284380686401461325
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +246,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -999
-  m_Sprite: {fileID: 21300000, guid: a2aa2612bfb267d49a1e428faa54d309, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a97d0b70bfa04840b634f2b2ac601a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
