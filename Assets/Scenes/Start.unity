@@ -621,8 +621,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Game made by:\nGerhard Schr\xF6der\nAngela Merkel\nOlaf Scholz\nFriedrich
-    Merz"
+  m_text: 'Game made by:
+
+    Marvin Leusch
+
+    Ole Schlichting
+
+    Stig Griebenow
+
+    Yann
+    in ''t Veld'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2f69af30d2bc492438ad15e5b8b84c9d, type: 2}
   m_sharedMaterial: {fileID: 8353791694191606531, guid: 2f69af30d2bc492438ad15e5b8b84c9d, type: 2}
@@ -1497,11 +1505,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Main
+  - name: Music
     clip: {fileID: 8300000, guid: 0100e7cfbb96e764482a2fb7abd18fb2, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+    GroupName: 
+  - name: Jump
+    clip: {fileID: 8300000, guid: 7c15e24d47631f04f854471c016b4489, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: Boost
+    clip: {fileID: 8300000, guid: c03fa78fb27f7ec4499398ad543c8e4c, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: Bounce
+    clip: {fileID: 8300000, guid: 04c4360975d74ec49bea3f182a440d5a, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: DoorClose
+    clip: {fileID: 8300000, guid: d6026f1aa70198d4d9722f32c9f3f197, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: HitWall
+    clip: {fileID: 8300000, guid: a4ae74c239150a447ab6ec9b1745571e, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: Land
+    clip: {fileID: 8300000, guid: 1f6360e947e60974587e1efd81c4b21f, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: TimerTicking
+    clip: {fileID: 8300000, guid: d0c8d8c9b0b2ce14eace7664383bd0df, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: BarrierOpen
+    clip: {fileID: 8300000, guid: 6aa844ed709fdc247ae28be93711c2f6, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: BarrierClose
+    clip: {fileID: 8300000, guid: e9ba135dc58aa7a429bde5b272158a8e, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
     GroupName: 
   GeneralVolume: 1

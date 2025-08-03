@@ -25,7 +25,7 @@ public class Door_Controller : MonoBehaviour, IActivatable
             UpdateLightVisibility();
         }
     }
-
+    
     public bool IsOpen
     {
         get => _isOpen;
@@ -33,6 +33,11 @@ public class Door_Controller : MonoBehaviour, IActivatable
         {
             _isOpen = value;
             UpdateDoorSprite();
+            if(IsOpen) {
+            AudioController.instance.Play("DoorOpen");
+            } else {
+            AudioController.instance.Play("DoorClose");
+            }
         }
     }
 
@@ -65,7 +70,11 @@ public class Door_Controller : MonoBehaviour, IActivatable
 
     public void Toggle()
     {
+        
+
+
         IsOpen = !IsOpen;
+        
 
         if (showLights)
         {
@@ -76,7 +85,6 @@ public class Door_Controller : MonoBehaviour, IActivatable
                     controller.SetLight(true);
             }
         }
-        
     }
 
     public void OpenTemporarily(int duration)

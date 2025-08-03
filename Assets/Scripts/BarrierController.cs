@@ -33,6 +33,11 @@ public class BarrierController : MonoBehaviour, IActivatable
             _isOpen = value;
             UpdateBarrierSprite();
             UpdateColliderState();  // Enable/disable collider when open/closed
+            if (IsOpen) {
+                AudioController.instance.Play("BarrierOpen");
+            } else {
+                AudioController.instance.Play("BarrierClose");
+            }
         }
     }
 
