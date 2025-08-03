@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+
+
+
+
     [SerializeField] Sound[] sounds;
     public float GeneralVolume;
 
@@ -27,6 +31,7 @@ public class AudioController : MonoBehaviour
 
     private void Start() {
         PlayerPrefs.SetInt("FirstTimePlaying", 1);
+        Play("Main");
     }
 
     public void ChangeGeneralVolume(float volume) {
@@ -88,4 +93,7 @@ public class AudioController : MonoBehaviour
         }
         return s; // Will return null if not found
     }
+
+
+
 }
