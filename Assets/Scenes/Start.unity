@@ -1667,6 +1667,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     GroupName: 
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: 8aca61937c0036d49bc1aa5df9d959f5, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
   - name: DoorClose
     clip: {fileID: 8300000, guid: d6026f1aa70198d4d9722f32c9f3f197, type: 3}
     volume: 0.025
