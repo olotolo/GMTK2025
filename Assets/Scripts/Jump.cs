@@ -21,6 +21,7 @@ public class Jump2D_ExplicitCheck : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
         }
     }
 
