@@ -32,6 +32,8 @@ public class ButtonController : MonoBehaviour
         Debug.Log("Entered trigger with: " + collision.name);
         if (collision.CompareTag("Player") && isActivated)
         {
+            AudioController.instance.Play("ButtonClick");
+
             Debug.Log("Button triggered!");
             var activatable = _targetObject.GetComponent<IActivatable>();
 

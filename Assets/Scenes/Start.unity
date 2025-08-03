@@ -1527,28 +1527,21 @@ MonoBehaviour:
     source: {fileID: 0}
     GroupName: 
   - name: Bounce
-    clip: {fileID: 8300000, guid: 04c4360975d74ec49bea3f182a440d5a, type: 3}
+    clip: {fileID: 8300000, guid: 2ac41b6332a611848866a6ba7bd1b3c3, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
     source: {fileID: 0}
     GroupName: 
   - name: DoorOpen
-    clip: {fileID: 8300000, guid: 8aca61937c0036d49bc1aa5df9d959f5, type: 3}
+    clip: {fileID: 8300000, guid: 1039894e7433da74cab191465b2ad6d8, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
     source: {fileID: 0}
     GroupName: 
   - name: DoorClose
-    clip: {fileID: 8300000, guid: d6026f1aa70198d4d9722f32c9f3f197, type: 3}
-    volume: 0.025
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-    GroupName: 
-  - name: HitWall
-    clip: {fileID: 8300000, guid: a4ae74c239150a447ab6ec9b1745571e, type: 3}
+    clip: {fileID: 8300000, guid: f27b9e60a473ebd4894dae28b42f8621, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
@@ -1577,6 +1570,27 @@ MonoBehaviour:
     GroupName: 
   - name: BarrierClose
     clip: {fileID: 8300000, guid: e9ba135dc58aa7a429bde5b272158a8e, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: LevelComplete
+    clip: {fileID: 8300000, guid: 28dca1ac25c71204cbb94277520a674b, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: ReverseDirection
+    clip: {fileID: 8300000, guid: 04c4360975d74ec49bea3f182a440d5a, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 7aad88557b449824fb82c6ecb2569398, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0

@@ -127,7 +127,7 @@ public class Door_Controller : MonoBehaviour, IActivatable
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(IsOpen) {
-
+            AudioController.instance.Play("LevelComplete");
             FindFirstObjectByType<SceneChanger>().LoadNextLevel();
             _rotationManager.levelRotationSpeed = 0.0f;
         }

@@ -10,8 +10,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AudioController.instance.Play("Bounce");
         _inBounceback = true;
-        AudioController.instance.Play("HitWall");
     }
 
     private void Start() {
