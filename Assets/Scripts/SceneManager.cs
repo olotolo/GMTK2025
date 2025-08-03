@@ -11,6 +11,11 @@ public class SceneChanger : MonoBehaviour {
 
     [SerializeField] private float fadeSpeed = 0.01f;
     [SerializeField] private float fadeStep = 0.01f;
+
+    public void RestartScene()
+    {
+        StartFadeToScene(_sceneNames[_currentLevel]);
+    }
     public void ChangeScene(string sceneName) {
         StartFadeToScene(sceneName);
     }
