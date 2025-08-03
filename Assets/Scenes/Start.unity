@@ -1415,6 +1415,8 @@ MonoBehaviour:
   - Level_03
   - Level_04_Stig
   - Level_X_Stig
+  - Level_X_Stig
+  - End
   _scene: []
   _blackScreen: {fileID: 2061226089}
   fadeSpeed: 0.005
