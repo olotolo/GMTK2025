@@ -86,9 +86,14 @@ public class SceneChanger : MonoBehaviour {
     bool _started = false;
 
     private void Update() {
-        if(Input.anyKeyDown && !_started) {
-            StartFirstLevel();
-            _started = true;
+        if (Input.anyKeyDown && !_started) {
+            // Filter out mouse buttons
+            if (!Input.GetMouseButtonDown(0) &&
+                !Input.GetMouseButtonDown(1) &&
+                !Input.GetMouseButtonDown(2)) {
+                StartFirstLevel();
+                _started = true;
+            }
         }
     }
 
