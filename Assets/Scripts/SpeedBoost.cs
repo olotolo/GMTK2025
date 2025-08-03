@@ -34,7 +34,7 @@ public class SpeedBoost : MonoBehaviour
             }
             else
             {
-                _rotationManager.levelRotationSpeed = _rotationManager.targetRotationSpeed * Mathf.Sign(_rotationManager.levelRotationSpeed);
+                _rotationManager.levelRotationSpeed = _rotationManager.targetRotationSpeed ;
                 _currentlyBoosted = false;
             }
         }
