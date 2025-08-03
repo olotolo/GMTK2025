@@ -26,6 +26,7 @@ public class PlayerStateMachine : MonoBehaviour {
     private WalkingState walkingState;
     private RunningState runningState;
     private StandingState standingState;
+    private BouncingState bouncingState;
 
     [SerializeField] public Player _player;
     [SerializeField] public SpriteRenderer _standing;
@@ -33,6 +34,7 @@ public class PlayerStateMachine : MonoBehaviour {
     [SerializeField] public SpriteRenderer _walking;
     [SerializeField] public SpriteRenderer _jumping;
     [SerializeField] public SpriteRenderer _falling;
+    [SerializeField] public SpriteRenderer _bouncing;
 
     private EarlyInputHandler earlyJumpInputHandler;
 
@@ -57,6 +59,7 @@ public class PlayerStateMachine : MonoBehaviour {
         walkingState = new WalkingState();
         runningState = new RunningState();
         standingState = new StandingState();
+        bouncingState = new BouncingState();
 
         // Set the initial state
         TransitionToState(standingState);
@@ -82,6 +85,7 @@ public class PlayerStateMachine : MonoBehaviour {
         _walking.gameObject.SetActive(false);
         _jumping.gameObject.SetActive(false);
         _falling.gameObject.SetActive(false);
+        _bouncing.gameObject.SetActive(false);
     }
 
     void Update() {
@@ -146,6 +150,14 @@ public class PlayerStateMachine : MonoBehaviour {
         {
             TransitionToState(walkingState);
             return;
+        }
+        /*if(_rotationManager.isBouncing)
+        {
+            TransitionToState(bouncingState);
+        }*/
+        if (currentState == bouncingState &&!_rotationManager.isBouncing)
+        {
+            TransitionToState(walkingState);
         }
     }
 

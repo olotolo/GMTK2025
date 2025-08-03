@@ -14,6 +14,7 @@ public class RotationController : MonoBehaviour
     [SerializeField] bool _skipStartUI;
  
     private bool levelHasStarted;
+    public bool isBouncing = false;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class RotationController : MonoBehaviour
             StartLevel();
         }
         updateRotation();
+        isBouncing = (Mathf.Sign(targetRotationSpeed) != Mathf.Sign(levelRotationSpeed)) && levelHasStarted;
     }
 
     public bool LevelHasStarted() { return levelHasStarted; }
