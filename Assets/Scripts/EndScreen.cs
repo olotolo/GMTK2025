@@ -46,6 +46,7 @@ public class EndScreen : MonoBehaviour
                     !Input.GetMouseButtonDown(1) &&
                     !Input.GetMouseButtonDown(2)) {
                     SceneManager.LoadScene("Level_01");
+                    FindFirstObjectByType<SceneChanger>()._currentLevel = 1;
                 }
             }
         }
