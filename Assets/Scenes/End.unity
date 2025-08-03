@@ -668,8 +668,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Game made by:\nGerhard Schr\xF6der\nAngela Merkel\nOlaf Scholz\nFriedrich
-    Merz"
+  m_text: 'Game made by:
+
+    Marvin Leusch
+
+    Ole Schlichting
+
+    Stig Griebenow
+
+    Yann
+    in ''t Veld'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2f69af30d2bc492438ad15e5b8b84c9d, type: 2}
   m_sharedMaterial: {fileID: 8353791694191606531, guid: 2f69af30d2bc492438ad15e5b8b84c9d, type: 2}
