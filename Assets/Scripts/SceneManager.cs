@@ -75,8 +75,10 @@ public class SceneChanger : MonoBehaviour {
         _currentLevelUI.SetActive(false);
     }
 
+    [SerializeField] GameObject _madeByUI;
     private void StartFirstLevel() {
         _currentLevel = 0;
+        Destroy(_madeByUI);
         ChangeScene(_sceneNames[_currentLevel]);
         
     }

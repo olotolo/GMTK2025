@@ -927,13 +927,16 @@ MonoBehaviour:
   _sceneNames:
   - Level_01
   - Level_02
-  - 
+  - Level_03
+  - Level_04
+  - Level_05
   _scene: []
   _blackScreen: {fileID: 2061226089}
   fadeSpeed: 0.005
   fadeStep: 0.01
   _currentLevelUI: {fileID: 2127971727}
   _pressButtonUI: {fileID: 1949778607}
+  _madeByUI: {fileID: 2088091569}
   _levelText: {fileID: 2127971729}
 --- !u!114 &1308078173
 MonoBehaviour:
@@ -1245,7 +1248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -65}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127971729
