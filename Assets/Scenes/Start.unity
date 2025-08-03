@@ -1561,6 +1561,20 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     GroupName: 
+  - name: BarrierOpen
+    clip: {fileID: 8300000, guid: 6aa844ed709fdc247ae28be93711c2f6, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: BarrierClose
+    clip: {fileID: 8300000, guid: e9ba135dc58aa7a429bde5b272158a8e, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
   GeneralVolume: 1
 --- !u!114 &1774579270
 MonoBehaviour:
