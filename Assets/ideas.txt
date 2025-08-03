@@ -10,3 +10,8 @@ For collision objects:
 	- Speed up
 	- increase jump height 
 	
+bounceback, boost, direction changer
+
+The Game Plays in a Looping circle 
+
+Looping level layout
