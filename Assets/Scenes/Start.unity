@@ -1497,15 +1497,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Main
+  - name: Music
     clip: {fileID: 8300000, guid: 0100e7cfbb96e764482a2fb7abd18fb2, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 1
     source: {fileID: 0}
     GroupName: 
   - name: Jump
     clip: {fileID: 8300000, guid: 7c15e24d47631f04f854471c016b4489, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: Boost
+    clip: {fileID: 8300000, guid: c6b75ccfe4c31ee4bb80272c07357970, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: Bounce
+    clip: {fileID: 8300000, guid: 951f5a8549ca0aa4990b95f59072a46d, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: DoorClose
+    clip: {fileID: 8300000, guid: a23dee8556001c74794054c515df41b5, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: HitWall
+    clip: {fileID: 8300000, guid: 97cafa793e058484fafb9f4fbd114839, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: Land
+    clip: {fileID: 8300000, guid: 3dbc5881df9b69b4396b7ea5113a1f9f, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
+  - name: TimerTicking
+    clip: {fileID: 8300000, guid: 4e4bc3f40e4646e4e8cfcc6c485096cc, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0

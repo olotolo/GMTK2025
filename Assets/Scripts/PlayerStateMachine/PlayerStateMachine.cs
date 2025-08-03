@@ -134,6 +134,7 @@ public class PlayerStateMachine : MonoBehaviour {
         }
         if (currentState == fallingState && isGrounded) {
             TransitionToState(walkingState);
+            AudioController.instance.Play("Land");
             return;
         }
         if(currentState == walkingState && _player.boostedFor > 0.0f)

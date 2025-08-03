@@ -22,6 +22,7 @@ public class SpeedBoost : MonoBehaviour
         }
         _boostedObject.GetComponent<Player>().boostedFor = _fullBoostTime;
         _currentlyBoosted = true;
+        AudioController.instance.Play("Boost");
     }
 
     private void Update()
