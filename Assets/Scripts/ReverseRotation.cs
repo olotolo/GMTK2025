@@ -17,5 +17,6 @@ public class ReverseRotation : MonoBehaviour
         {
             collision.GetComponent<Player>().MirrorSprite();
         }
+        AudioController.instance.Play("Bounce");
     }
 }
