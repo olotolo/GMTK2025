@@ -1352,9 +1352,9 @@ MonoBehaviour:
   - Level_01
   - Level_02
   - Level_03
-  - Level_04_Stig
-  - Level_X_Stig
-  - Level_X_Stig
+  - Level_04
+  - Level_05
+  - Level_06
   - End
   _scene: []
   _blackScreen: {fileID: 2061226089}
