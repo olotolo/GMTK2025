@@ -1512,42 +1512,42 @@ MonoBehaviour:
     source: {fileID: 0}
     GroupName: 
   - name: Boost
-    clip: {fileID: 8300000, guid: c6b75ccfe4c31ee4bb80272c07357970, type: 3}
+    clip: {fileID: 8300000, guid: c03fa78fb27f7ec4499398ad543c8e4c, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
     source: {fileID: 0}
     GroupName: 
   - name: Bounce
-    clip: {fileID: 8300000, guid: 951f5a8549ca0aa4990b95f59072a46d, type: 3}
+    clip: {fileID: 8300000, guid: 04c4360975d74ec49bea3f182a440d5a, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
     source: {fileID: 0}
     GroupName: 
   - name: DoorClose
-    clip: {fileID: 8300000, guid: a23dee8556001c74794054c515df41b5, type: 3}
+    clip: {fileID: 8300000, guid: d6026f1aa70198d4d9722f32c9f3f197, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
     source: {fileID: 0}
     GroupName: 
   - name: HitWall
-    clip: {fileID: 8300000, guid: 97cafa793e058484fafb9f4fbd114839, type: 3}
+    clip: {fileID: 8300000, guid: a4ae74c239150a447ab6ec9b1745571e, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
     source: {fileID: 0}
     GroupName: 
   - name: Land
-    clip: {fileID: 8300000, guid: 3dbc5881df9b69b4396b7ea5113a1f9f, type: 3}
+    clip: {fileID: 8300000, guid: 1f6360e947e60974587e1efd81c4b21f, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
     source: {fileID: 0}
     GroupName: 
   - name: TimerTicking
-    clip: {fileID: 8300000, guid: 4e4bc3f40e4646e4e8cfcc6c485096cc, type: 3}
+    clip: {fileID: 8300000, guid: d0c8d8c9b0b2ce14eace7664383bd0df, type: 3}
     volume: 0.025
     pitch: 1
     loop: 0
