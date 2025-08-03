@@ -34,9 +34,15 @@ public class SpeedBoost : MonoBehaviour
             }
             else
             {
-                _rotationManager.levelRotationSpeed = _rotationManager.targetRotationSpeed * Mathf.Sign(_rotationManager.levelRotationSpeed);
+                _rotationManager.levelRotationSpeed = _rotationManager.targetRotationSpeed ;
                 _currentlyBoosted = false;
             }
         }
+
+
+        // Set treadmill sprite in the correct direction
+        Vector3 _scale = transform.localScale;
+        _scale.x = Mathf.Abs(transform.localScale.x) * Mathf.Sign(_rotationManager.levelRotationSpeed);
+        transform.localScale = _scale;
     }
 }

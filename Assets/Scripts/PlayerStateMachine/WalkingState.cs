@@ -7,7 +7,6 @@ public class WalkingState : PlayerState
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        Debug.Log("enter walking state");
         playerRb.GetComponent<PlayerStateMachine>().DisableAllSpriteRenderers();
         playerRb.GetComponent<PlayerStateMachine>()._walking.gameObject.SetActive(true);
     }

@@ -2,27 +2,32 @@ using UnityEngine;
 
 public class JumpingState : PlayerState {
     private float jumpForce;
+    private float standardGravity;
+    private float variableJumpGravity;
 
-    public JumpingState(float jumpForce) {
+    public JumpingState(float jumpForce, float standardGravity, float variableJumpGravity) {
         this.jumpForce = jumpForce;
+        this.standardGravity = standardGravity;
+        this.variableJumpGravity = variableJumpGravity;
     }
 
     public override void EnterState(Rigidbody2D playerRb, Transform groundCheck, float groundCheckRadius) {
-        Debug.Log("jupming state");
         base.EnterState(playerRb, groundCheck, groundCheckRadius);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         playerRb.GetComponent<PlayerStateMachine>().DisableAllSpriteRenderers();
         playerRb.GetComponent<PlayerStateMachine>()._jumping.gameObject.SetActive(true);
+
+        playerRb.gravityScale = standardGravity;
     }
 
     public override void UpdateState() {
-        // Transition to FallingState
-        if (rb.linearVelocity.y < 0) {
-            // Player has started to fall
+        // Variable jump height
+        if (!Input.GetButton("Jump")) {
+            rb.gravityScale = variableJumpGravity;
         }
     }
 
     public override void ExitState() {
-        // No specific exit logic for JumpingState
+        rb.gravityScale = standardGravity;
     }
 }

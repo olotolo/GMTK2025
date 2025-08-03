@@ -66,6 +66,17 @@ public class Door_Controller : MonoBehaviour, IActivatable
     public void Toggle()
     {
         IsOpen = !IsOpen;
+
+        if (showLights)
+        {
+            foreach (var lightObj in lights)
+            {
+                var controller = lightObj.GetComponent<LightController>();
+                if (controller != null)
+                    controller.SetLight(true);
+            }
+        }
+        
     }
 
     public void OpenTemporarily(int duration)

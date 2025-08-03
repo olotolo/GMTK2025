@@ -4,29 +4,39 @@ public class RotationController : MonoBehaviour
 {
     [SerializeField] GameObject _camera;
     [SerializeField] GameObject _level;
+
+    // This is now a bit confusing, but the ones that are hidden in the inspector should not be set by hand
     public float cameraRotationSpeed;
     public float levelRotationSpeed;
-    public float relativeRotation;
-    public float targetRotationSpeed;
+    [HideInInspector] public float relativeRotation;
+    [HideInInspector] public float targetRotationSpeed;
     [SerializeField] GameObject _startGameUI;
     [SerializeField] bool _skipStartUI;
  
+    private bool levelHasStarted;
+
     private void Start()
     {
-        Time.timeScale = 0.0f;
         relativeRotation = (levelRotationSpeed - cameraRotationSpeed);
         targetRotationSpeed = levelRotationSpeed;
-        updateRotation();
+        levelRotationSpeed = 0f;
+
+        levelHasStarted = false;
+
         if (_skipStartUI) {
             StartLevel();
         }
     }
 
     public void StartLevel() {
-        Time.timeScale = 1.0f;
+        if (levelHasStarted) return;
+
         if(_startGameUI != null) {
             Destroy(_startGameUI);
         }
+
+        levelRotationSpeed = targetRotationSpeed;
+        levelHasStarted = true;
     }
 
     private void Update()
@@ -36,6 +46,8 @@ public class RotationController : MonoBehaviour
         }
         updateRotation();
     }
+
+    public bool LevelHasStarted() { return levelHasStarted; }
 
     private void updateRotation()
     {

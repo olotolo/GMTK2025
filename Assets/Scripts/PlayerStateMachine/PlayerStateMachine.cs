@@ -5,10 +5,18 @@ using UnityEngine.UI;
 public class PlayerStateMachine : MonoBehaviour {
     [Header("Jumping")]
     public float jumpForce = 10f;
+    public float coyoteTime = 0.0f;
+    public float gravityScale = 1.0f;
+    public float fallingGravityScale = 1.5f;
+    public float variableJumpGravity = 2.0f;
+    public float allowedJumpInputTimeDiff = 0.01f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
+
+
+    private float timeSinceGrounded;
 
     private Rigidbody2D rb;
     private PlayerState currentState;
@@ -17,25 +25,41 @@ public class PlayerStateMachine : MonoBehaviour {
     private FallingState fallingState;
     private WalkingState walkingState;
     private RunningState runningState;
+    private StandingState standingState;
 
+    [SerializeField] public Player _player;
+    [SerializeField] public SpriteRenderer _standing;
     [SerializeField] public SpriteRenderer _running;
     [SerializeField] public SpriteRenderer _walking;
     [SerializeField] public SpriteRenderer _jumping;
     [SerializeField] public SpriteRenderer _falling;
 
+    private EarlyInputHandler earlyJumpInputHandler;
+
+    [SerializeField] RotationController _rotationManager;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        timeSinceGrounded = 0.0f;
+
+        // For handling delayed jump inputs
+        earlyJumpInputHandler = new EarlyInputHandler("Jump", allowedJumpInputTimeDiff);
+
+        // Find rotation manager
+        if (_rotationManager == null)
+        {
+            _rotationManager = FindFirstObjectByType<RotationController>();
+        }
 
         // Create instances of all states
-        jumpingState = new JumpingState(jumpForce);
-        fallingState = new FallingState();
+        jumpingState = new JumpingState(jumpForce, gravityScale, variableJumpGravity);
+        fallingState = new FallingState(gravityScale, fallingGravityScale);
         walkingState = new WalkingState();
         runningState = new RunningState();
-
+        standingState = new StandingState();
 
         // Set the initial state
-        TransitionToState(walkingState);
+        TransitionToState(standingState);
 
         FindFirstObjectByType<Mobile>()._jumpButtonForMobile
         .GetComponent<Button>()
@@ -49,6 +73,7 @@ public class PlayerStateMachine : MonoBehaviour {
 
 
     public void DisableAllSpriteRenderers() {
+        _standing.gameObject.SetActive(false);
         _running.gameObject.SetActive(false);
         _walking.gameObject.SetActive(false);
         _jumping.gameObject.SetActive(false);
@@ -56,6 +81,9 @@ public class PlayerStateMachine : MonoBehaviour {
     }
 
     void Update() {
+        UpdateCoyoteTimer();
+        earlyJumpInputHandler.Update();
+
         if (currentState != null) {
             currentState.UpdateState();
             CheckForStateTransition();
@@ -73,15 +101,46 @@ public class PlayerStateMachine : MonoBehaviour {
     
 
     private void CheckForStateTransition() {
-        if (walkingOrRunning() && Input.GetButtonDown("Jump") && IsGrounded()) {
-            TransitionToState(jumpingState);
-        }
-        else if (walkingOrRunning() && !IsGrounded()) {
-            TransitionToState(fallingState);
-        } else if (currentState == jumpingState && rb.linearVelocity.y <= 0) {
-            TransitionToState(fallingState);
-        } else if (currentState == fallingState && IsGrounded()) {
+        bool isGrounded = IsGrounded();
+        bool jumpWasPressed = earlyJumpInputHandler.WasPressed();
+
+        if ((currentState == standingState) && _rotationManager.LevelHasStarted())
+        {
             TransitionToState(walkingState);
+        }
+
+        if (walkingOrRunning() && jumpWasPressed && (isGrounded))
+        {
+            TransitionToState(jumpingState);
+            return;
+        }
+        if ((currentState == fallingState) && jumpWasPressed && (timeSinceGrounded <= coyoteTime)) {
+            TransitionToState(jumpingState);
+            return;
+        }
+        if ((currentState == jumpingState) && rb.linearVelocity.y <= 0)
+        {
+            TransitionToState(fallingState);
+            return;
+        }
+        if ((!isGrounded) && rb.linearVelocity.y <= 0)
+        {
+            TransitionToState(fallingState);
+            return;
+        }
+        if (currentState == fallingState && isGrounded) {
+            TransitionToState(walkingState);
+            return;
+        }
+        if(currentState == walkingState && _player.boostedFor > 0.0f)
+        {
+            TransitionToState(runningState);
+            return;
+        }
+        if (currentState == runningState && _player.boostedFor <= 0.0f)
+        {
+            TransitionToState(walkingState);
+            return;
         }
     }
 
@@ -102,6 +161,14 @@ public class PlayerStateMachine : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    private void UpdateCoyoteTimer() {
+        if (IsGrounded()) {
+            timeSinceGrounded = 0.0f;
+            return;
+        }
+        timeSinceGrounded += Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected() {
