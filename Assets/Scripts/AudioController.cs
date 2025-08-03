@@ -31,7 +31,7 @@ public class AudioController : MonoBehaviour
 
     private void Start() {
         PlayerPrefs.SetInt("FirstTimePlaying", 1);
-        Play("Main");
+        //Play("Main");
     }
 
     public void ChangeGeneralVolume(float volume) {

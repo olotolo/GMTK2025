@@ -1504,6 +1504,13 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
     GroupName: 
+  - name: Jump
+    clip: {fileID: 8300000, guid: 7c15e24d47631f04f854471c016b4489, type: 3}
+    volume: 0.025
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    GroupName: 
   GeneralVolume: 1
 --- !u!114 &1774579270
 MonoBehaviour:
