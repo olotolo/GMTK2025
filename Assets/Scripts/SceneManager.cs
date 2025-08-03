@@ -80,7 +80,6 @@ public class SceneChanger : MonoBehaviour {
         _currentLevel = 0;
         Destroy(_madeByUI);
         ChangeScene(_sceneNames[_currentLevel]);
-        
     }
 
     bool _started = false;
