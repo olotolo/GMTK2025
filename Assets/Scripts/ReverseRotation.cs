@@ -16,7 +16,7 @@ public class ReverseRotation : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<Player>().MirrorSprite();
+            AudioController.instance.Play("ReverseDirection");
         }
-        AudioController.instance.Play("Bounce");
     }
 }

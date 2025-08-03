@@ -813,7 +813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thank your for playing!
+  m_text: 'Thank you for playing!
 
 
 '

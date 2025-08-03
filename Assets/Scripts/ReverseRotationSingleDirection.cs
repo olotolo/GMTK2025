@@ -26,6 +26,8 @@ public class ReverseRotationSingleDirection : MonoBehaviour
             collision.GetComponent<Player>().MirrorSprite();
             _rotationManager.targetRotationSpeed *= -1;
             _rotationManager.levelRotationSpeed *= -1;
+            AudioController.instance.Play("ReverseDirection");
+
         }
     }
 }

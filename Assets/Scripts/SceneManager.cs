@@ -72,7 +72,7 @@ public class SceneChanger : MonoBehaviour {
 
 
 
-    int _currentLevel = -1;
+    public int _currentLevel = -1;
     [SerializeField] GameObject _currentLevelUI;
     [SerializeField] GameObject _pressButtonUI;
 
