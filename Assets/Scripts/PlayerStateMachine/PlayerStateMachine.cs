@@ -61,14 +61,18 @@ public class PlayerStateMachine : MonoBehaviour {
         // Set the initial state
         TransitionToState(standingState);
 
-        FindFirstObjectByType<Mobile>()._jumpButtonForMobile
-        .GetComponent<Button>()
-        .onClick
-        .AddListener(() => {
-            if(IsGrounded() && walkingOrRunning()) {
-                TransitionToState(jumpingState);
+        var mobile = FindFirstObjectByType<Mobile>();
+        if (mobile != null && mobile._jumpButtonForMobile != null) {
+            Button jumpBtn = mobile._jumpButtonForMobile.GetComponent<Button>();
+            if (jumpBtn != null) {
+                jumpBtn.onClick.AddListener(() => {
+                    if (IsGrounded() && walkingOrRunning()) {
+                        TransitionToState(jumpingState);
+                    }
+                });
             }
-        });
+        }
+
     }
 
 
